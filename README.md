@@ -2,12 +2,12 @@
 
 This project aims to set up a algorithm, that, when given a city's real estate data, can predict priceranges in any given xy coordinate within the citys boarders. This project was created in for a Tartu University CS class.
 
-- [Real Estate Pricerange Predictor](Real-Estate-Pricerange-Predictor)
-  - [Getting Started](Getting-Started)
-    - [Scraping Data Example](Scraping-Data-Example)
-      - [Manual Scraping](Manual-Scraping)
-    - [Prerequisites](Prerequisites)
-    - [Authors](Authors)
+- [Real Estate Pricerange Predictor](#Real-Estate-Pricerange-Predictor)
+  - [Getting Started](#Getting-Started)
+    - [Scraping Data Example](#Scraping-Data-Example)
+      - [Manual Scraping](#Manual-Scraping)
+    - [Prerequisites](#Prerequisites)
+    - [Authors](#Authors)
 
 ## Getting Started
 
