@@ -7,6 +7,7 @@ This project aims to set up a algorithm, that, when given a city's real estate d
     - [Scraping Data Example](Scraping-Data-Example)
       - [Manual Scraping](Manual-Scraping)
     - [Prerequisites](Prerequisites)
+    - [Authors](Authors)
 
 ## Getting Started
 
