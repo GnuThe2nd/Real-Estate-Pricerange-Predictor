@@ -22,11 +22,11 @@ Note: We did try automating the scraping process with a script, but after some c
 
 1. Go to KV.ee.
 2. For type, choose rent (_Üür_), Then choose any city youd like to get data on.
-   ![rightvalues](Images/Readme_images/README_scrape_guide_1.png)
+   ![rightvalues](Source/Images/Readme_images/README_scrape_guide_1.png)
 3. Open "Search from the map" (_Otsi kaardilt_) and inspect the element.
-   ![inspectelement](Images/Readme_images/README_scrape_guide_2.png)
+   ![inspectelement](Source/Images/Readme_images/README_scrape_guide_2.png)
 4. From there, choose Network and Fetch/XHR. There you should see a line along the lines of "map&deal_type=2...". If there are multiple of them, choose the lowest, as it should be the latest. Click on it and then choose "Response".
-   ![findingdata](Images/Readme_images/README_scraper_guide_3.png)
+   ![findingdata](Source/Images/Readme_images/README_scraper_guide_3.png)
 5. Then just ctrl+A, ctrl+C and paste the whole thing into a .json file.
 
 ### Prerequisites
