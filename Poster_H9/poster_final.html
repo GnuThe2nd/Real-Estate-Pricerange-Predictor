@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rental Price Analysis Poster - Figma Friendly</title>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* For Row 4: Balanced three-column layout */
+.row-4 {
+    display: flex;
+    gap: 12px;
+    align-items: stretch; /* Ensures all columns stretch to the same height */
+}
+
+.row-4 .col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distributes space evenly */
+}
+
+.row-4 .figure-section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex-grow: 1;
+}
+
+.row-4 .figure-placeholder {
+    height: 350px; /* Reduced from 400px for balance; adjust if needed */
+    width: 100%;
+}
+
+.row-4 .caption {
+    font-size: 28px; /* Slightly smaller for compactness */
+    text-align: center;
+}
+
+/* For Row 5: More balanced matrix and text */
+.row-5 {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.row-5 .matrix-col {
+    flex: 0 0 600px; /* Fixed width for matrix, reduced from 700px for more text space */
+}
+
+.row-5 .text-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.row-5 .figure-placeholder {
+    height: 600px; /* Square-ish, matching width */
+    width: 100%;
+}
+
+
+/* Force Chrome to print background colors */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #1a1a1a;
+    background: white;
+    print-color-adjust: exact !important;
+    -webkit-print-color-adjust: exact !important;
+}
+
+/* A0 size container */
+.poster {
+    width: 3179px;         /* EXACT A0 width @ 96dpi */
+    height: 4493px;        /* EXACT A0 height @ 96dpi */
+    padding: 15px 25px;    /* Kept as is for outer edges */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;             /* Reduced from 20px to save vertical space */
+}
+
+/* HEADER */
+.header {
+    background: #1e3a8a;
+    color: white;
+    padding: 30px;         /* Reduced from 45px */
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-left {
+    flex: 1;
+}
+
+.header-right {
+    font-size: 90px;       /* Increased from 80px */
+    font-weight: bold;
+    color: white;
+    text-align: right;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.header h1 {
+    font-size: 90px;       /* Increased from 80px */
+    font-weight: bold;
+    line-height: 1.1;
+    margin-bottom: 15px;   /* Reduced from 20px */
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.header h2 {
+    font-size: 55px;       /* Increased from 48px */
+    margin-bottom: 15px;   /* Reduced from 20px */
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.header .authors {
+    font-size: 36px;    
+    font-family: Arial, Helvetica, sans-serif;   /* Increased from 32px */
+}
+
+/* ROWS */
+.row {
+    width: 100%;
+    display: flex;
+    gap: 12px;             /* Reduced from 18px */
+}
+
+/* COLUMNS */
+.col {
+    flex: 1;
+    background: white;
+    border: 4px solid #1e3a8a;
+    border-radius: 14px;
+    padding: 10px;         /* Reduced from 16px */
+    display: flex;
+    flex-direction: column;
+    gap: 8px;              /* Reduced from 12px */
+}
+
+.col-2 {
+    flex: 2;
+}
+
+.col-full {
+    flex: 1 1 100%;
+}
+
+/* Two-column layout for features */
+.features-columns {
+    display: flex;
+    gap: 20px;
+    margin-top: 8px;
+}
+
+.features-col {
+    flex: 1;
+}
+
+/* Specific for final row to fill bottom space */
+.row:last-child .col:first-child {
+    padding-bottom: 80px;  /* Reduced from 120px */
+}
+
+/* Typography */
+h3 {
+    color: #1e3a8a;
+    font-size: 44px;       /* Increased from 40px */
+    margin-bottom: 8px;    /* Reduced from 12px */
+    border-bottom: 5px solid #3b82f6;
+    padding-bottom: 6px;   /* Reduced from 8px */
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+p {
+    font-size: 32px;       /* Increased from 30px */
+    line-height: 1.4;      /* Reduced from 1.5 for tighter spacing */
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 2px;   /* Reduced from 4px */
+}
+
+ul {
+    margin-left: 50px;     /* Reduced from 40px */
+    font-size: 32px;       /* Increased from 30px */
+    line-height: 1.4;      /* Reduced from 1.5 */
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+li {
+    margin-bottom: 6px;    /* Reduced from 8px */
+}
+
+strong {
+    color: #1e3a8a;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;       /* Reduced from 12px */
+    font-size: 30px;       /* Increased from 26px */
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+th {
+    background: #1e3a8a;
+    color: white;
+    padding: 8px;          /* Reduced from 12px */
+    text-align: left;
+}
+
+td {
+    padding: 8px;          /* Reduced from 12px */
+    border-bottom: 2px solid #e5e7eb;
+}
+
+/* Figures */
+.figure-box {
+    width: 100%;
+    height: 100%;
+    background: #f8fafc;
+    border: 4px solid #1e3a8a;
+    border-radius: 14px;
+    padding: 12px;         /* Reduced from 18px */
+    display: flex;
+    flex-direction: column;
+    gap: 6px;              /* Reduced from 10px */
+}
+
+.figure-placeholder {
+    width: 100%;
+    height: 550px;         /* Reduced from 600px to save space */
+    position: relative;
+    background: #f8fafc;
+    border-radius: 10px;
+}
+
+.figure-placeholder.figure-tall {
+    height: 550px;         /* Reduced from 600px */
+}
+
+.figure-placeholder img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;  /* Changed from 'contain' to 'cover' to fill the space and eliminate side padding */
+    border-radius: 10px;
+}
+
+
+.caption {
+    font-size: 30px;       /* Reduced from 32px for compactness */
+    color: #1e3a8a;
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Metrics for Model Performance */
+.metrics {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;              /* Reduced from 8px */
+    margin-top: 6px;       /* Reduced from 8px */
+}
+
+.metric {
+    display: flex;
+    align-items: center;
+    gap: 6px;              /* Reduced from 8px */
+}
+
+.metric-value {
+    font-size: 32px;       /* Increased from 30px */
+    font-weight: bold;
+    color: #1e3a8a;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.metric-label {
+    font-size: 26px;       /* Reduced from 28px */
+    color: #1a1a1a;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Highlight */
+.highlight {
+    background: #dbeafe;
+    border-left: 7px solid #1e3a8a;
+    padding: 8px;          /* Reduced from 12px */
+    border-radius: 10px;
+}
+
+/* Footer (now standalone column) */
+.footer {
+    width: 100%;
+    height: 100%;
+    background: #f1f5f9;
+    border: 4px solid #1e3a8a;
+    border-radius: 14px;
+    padding: 12px;
+    display: flex;          /* Changed to flex row */
+    flex-direction: row;    /* Added */
+    align-items: center;    /* Added to center vertically */
+    gap: 20px;              /* Added gap between text and QR */
+}
+
+.footer-left {
+    font-size: 22px;       /* Reduced from 24px */
+    line-height: 1.2;      /* Reduced from 1.3 */
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.footer-right {
+    text-align: center;
+}
+
+.qr-placeholder img {
+    width: 260px;       /* Increased from 140px */
+    height: 260px;      /* Increased from 140px */
+}
+
+/* PRINT */
+@page {
+    size: A0 portrait;
+    margin: 0;
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="poster">
+        
+        <!-- HEADER -->
+        <div class="header">
+            <div class="header-left">
+                <h1>Rental Price Analysis in Estonian Cities:<br>A Geospatial Approach</h1>
+                <h2>Understanding Spatial Factors Affecting Rental Prices in Tartu and Tallinn</h2>
+                <div class="authors">
+                    Mari Lee Lumberg • Karl Martin Puna • Daniel Henri Trump<br>
+                    Data Science Course • University of Tartu • Project: Real-Estate-Pricerange-Predictor
+                </div>
+            </div>
+            <div class="header-right">
+                Project ID H9
+            </div>
+        </div>
+        
+        <!-- ROW 1: Introduction & Motivation + Data & Sources (left half), Data Cleaning (right half) -->
+        <div class="row">
+            <div class="col" style="flex: 1;">
+                <h3>1. Introduction & Motivation</h3>
+                <p><strong>Motivation:</strong> Urban rental markets are spatially structured - location and accessibility to services influence prices. This project investigates how network-distance to amenities and spatial autocorrelation shape rental prices in two Estonian cities.</p>
+                <p style="margin-top: 18px;"><strong>Goal:</strong> Quantify spatial factors affecting rent per m² in Tartu and Tallinn, and build predictive models that account for spatial dependence.</p>
+                
+                <h3>2. Data & Sources</h3>
+                <p><strong>Rental listings:</strong> KV.ee (web-scraped)</p>
+                <ul>
+                    <li>Tallinn: 1,359 → 1,345 final</li>
+                    <li>Tartu: 450 → 448 final</li>
+                </ul>
+                <p style="margin-top: 15px;"><strong>Street network & amenities:</strong> OpenStreetMap via OSMnx—amenity, shop, and leisure categories aggregated</p>
+                <p style="margin-top: 15px;"><strong>Geospatial data of neighbourhoods and districts:</strong> Maa- ja Ruumiamet (Estonian Land and Spatial Development Board) </p>
+            </div>
+            
+            <div class="col" style="flex: 1;">
+                <h3>3. Data Cleaning</h3>
+                <p><strong>Rental listings cleaning:</strong> Started with 20 columns (e.g., id, url, price, latitude, longitude). Tallinn: 1,359 records; Tartu: 450 records.</p>
+                <ul>
+                    <li>Removed whitespaces, replaced "?" with NaN</li>
+                    <li>Extracted price (€) and area (m²) from strings (e.g., '450 € 6.79 €/m²')</li>
+                    <li>Differentiated floor (e.g., 3) and total floors (e.g., 5) from '3/5'</li>
+                    <li>Converted values to numeric; removed properties missing critical fields (price, area_sqm, rooms)</li>
+                    <li>Removed columns with >20% missing data; final 10 columns for both cities</li>
+                </ul>
+                <p style="margin-top: 15px;"><strong>OSM data cleaning:</strong> Downloaded street networks and POIs via OSMnx, projected to EPSG:3301.</p>
+                <ul>
+                    <li>Split geometries (points vs. polygons), converted polygons to centroids</li>
+                    <li>Filtered amenities/shops/leisure by relevance (e.g., kept education, health, food; removed irrelevant like 'access')</li>
+                    <li>Aggregated into categories (e.g., food_drink, parks_green); kept shop types appearing ≥3 times</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- ROW 2: Left side has 4 & 6 stacked, Right side has 5 -->
+        <!-- ROW 2: Spatial Methodology + Education Paradox (left), Engineered Features (right) -->
+<div class="row">
+    <!-- Left side: Spatial Methodology + Education Paradox stacked -->
+    <div style="flex: 1; display: flex; flex-direction: column; gap: 12px;">
+        <div class="col">
+            <h3>4. Spatial Methodology</h3>
+            <p><strong>Network distances:</strong> Walking distance along street network using Dijkstra's algorithm (OSMnx), not straight-line</p>
+            <p><strong>Spatial autocorrelation:</strong> Bivariate Moran's I tests between price and amenity proximity</p>
+            <p><strong>Modeling:</strong> XGBoost classifier (3 classes by €/m² quantiles) with spatial cross-validation (5-fold spatial CV, 4km blocks)</p>
+        </div>
+        
+        <div class="col">
+            <h3>6. The Education Paradox</h3>
+            <div class="highlight">
+                <p><strong>Observation:</strong> Greater distance from primary/secondary schools correlates with higher rents in both cities. Schools in peripheral neighborhoods (suburban).</p>
+            </div>
+            <p><strong>Possible explanations:</strong></p>
+            <ul>
+                <li>Schools in peripheral neighborhoods</li>
+                <li>Older housing near schools</li>
+                <li>Families buy vs. rent</li>
+                <li>Traffic/noise externalities</li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Right side: Engineered Features - 3 COLUMNS -->
+    <div class="col">
+        <h3>5. Engineered Features</h3>
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; margin-top: 8px;">
+            <div>
+                <p style="font-size: 40px; line-height: 1.35;"><strong>1. Price per sqm:</strong> price / area_sqm</p>
+                <p style="font-size: 40px; line-height: 1.35;"><strong>2. Aggregated Services:</strong> Services grouped into categories</p>
+                <p style="font-size: 40px; line-height: 1.35;"><strong>3. Distance to Services:</strong> Network distances to each category</p>
+                <p style="font-size: 40px; line-height: 1.35;"><strong>4. Distance to Center:</strong> Direct distance to city center</p>
+                <p style="font-size: 40px; line-height: 1.35;"><strong>5. Condition Mapping:</strong> Numerical condition value</p>
+                <p style="font-size: 40px; line-height: 1.35;"><strong>6. Building Age:</strong> 2025 - build_year</p>
+            </div>
+            <div>
+                <p style="font-size: 40px; line-height: 1.35;"><strong>7. Floor Ratio:</strong> floor / total_floors</p>
+                <p style="font-size: 40px; line-height: 1.35;"><strong>8. Room Density:</strong> rooms / area_sqm</p>
+                <p style="font-size: 40px; line-height: 1.35;"><strong>9. Condition-Age Interaction:</strong> condition_score × building_age</p>
+                <p style="font-size: 40px; line-height: 1.35;"><strong>10. Floor-Total Interaction:</strong> floor_ratio × total_floors</p>
+                <p style="font-size: 40px; line-height: 1.35;"><strong>11. Price Categories:</strong> Binned price ranges</p>
+                <p style="font-size: 40px; line-height: 1.35;"><strong>12. Out-of-Fold Mean:</strong> Global mean from training folds</p>
+            </div>
+            <div>
+                <p style="font-size: 40px; line-height: 1.35;"><strong>13. District OOF Mean:</strong> District-level mean price</p>
+                <p style="font-size: 40px; line-height: 1.35;"><strong>14. Grid OOF Mean:</strong> 2km spatial grid mean</p>
+                <p style="font-size: 40px; line-height: 1.35;"><strong>15. Amenity Density:</strong> Service count within 800m</p>
+                <p style="font-size: 40px; line-height: 1.35;"><strong>16. Walkability Index:</strong> Composite (0-100) weighted amenity proximity</p>
+                <p style="font-size: 40px; line-height: 1.35;"><strong>17. Amenity Diversity:</strong> Distinct categories within 800m</p>
+            </div>
+        </div>
+    </div>
+</div>
+        
+<!-- ROW 4+5 COMBINED: All four figures with captions on the right - EVEN LARGER FIGURES -->
+<!-- ROW 4+5 COMBINED: All four figures with captions BELOW - MAXIMUM WIDTH -->
+<div class="row">
+    <!-- Column 1: Model Classification -->
+    <div class="col">
+        <div class="figure-placeholder" style="width: 100%; height: 650px;">
+            <img src="model_classification_tln.png" alt="Model Classification Map">
+        </div>
+        <div class="caption" style="font-size: 30px; margin-top: 8px;">Tallinn Model Classification</div>
+        <p style="font-size: 26px; line-height: 1.3; margin-top: 6px;">Predicted dominant price class per 200m grid cell using inverse distance weighting. Green = Budget (€2.68-12.50/m²), Blue = Mid-range (€12.50-16.67/m²), Purple = Premium (€16.68-47.14/m²). Black dots = listings.</p>
+    </div>
+    
+    <!-- Column 2: Reality Map -->
+    <div class="col">
+        <div class="figure-placeholder" style="width: 100%; height: 650px;">
+            <img src="reality_dom_tln.png" alt="Reality Map">
+        </div>
+        <div class="caption" style="font-size: 30px; margin-top: 8px;">Tallinn Reality Map</div>
+        <p style="font-size: 26px; line-height: 1.3; margin-top: 6px;">Actual dominant price class based on listings, interpolated to 200m grid. Shows real spatial patterns; black dots = property listings.</p>
+    </div>
+    
+    <!-- Column 3: Walkability Map -->
+    <div class="col">
+        <div class="figure-placeholder" style="width: 100%; height: 650px;">
+            <img src="walkability_tln.png" alt="Tallinn Walkability Map">
+        </div>
+        <div class="caption" style="font-size: 30px; margin-top: 8px;">Walkability Index</div>
+        <p style="font-size: 26px; line-height: 1.3; margin-top: 6px;">Composite score (0-100) based on proximity to weighted amenities (e.g., food/drink high, parking low). Higher values indicate better walkability and access to essential services.</p>
+    </div>
+    
+    <!-- Column 4: Correlation Matrix -->
+    <div class="col">
+        <div class="figure-placeholder" style="width: 100%; height: 650px;">
+            <img src="bivariate_morans_matrix.png" alt="Bivariate Moran's I Matrix">
+        </div>
+        <div class="caption" style="font-size: 30px; margin-top: 8px;">Bivariate Moran's I Matrix</div>
+        <p style="font-size: 26px; line-height: 1.3; margin-top: 6px;">Spatial correlations in Tallinn. Positive values (≥0.5): High-high matches. Negative values (≤-0.1): High-low matches. -0.1 to 0.1: Weak/no relation.</p>
+    </div>
+</div>
+
+<!-- NEW ROW: Reading the Correlation Matrix text -->
+<div class="row">
+    <div class="col">
+        <h3>Reading the Correlation Matrix</h3>
+        <p><strong>Logic for bivariate Moran's I:</strong> Measures spatial correlation between two variables, accounting for spatial dependence.</p>
+        <p style="margin-top: 10px;"><strong>Key insights:</strong> Top row shows price per m² vs. distances to amenities—high price associates with lower distance to center and higher distance to primary education (schools in suburban areas). Tallinn is monocentric (center correlates with most amenities). Sports/leisure, misc services, electronics cluster (multicollinearity). Price vs. price shows weak segregation (renovations blur rich/poor areas).</p>
+    </div>
+</div>
+
+        <!-- ROW 6: Model Performance + Prediction Error Figure + Understanding -->
+        <div class="row">
+            <div class="col">
+                <h3>7. Model Performance</h3>
+                <p><strong>Classification:</strong> 3 classes (Budget / Mid-range / Premium by €/m² quantiles)</p>
+                <p style="margin-top: 15px;"><strong>Performance (Tallinn):</strong></p>
+                <div class="metrics">
+                    <div class="metric">
+                        <div class="metric-value">71.4%</div>
+                        <div class="metric-label">Accuracy</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">0.552</div>
+                        <div class="metric-label">Kappa</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value"> 0.277</div>
+                        <div class="metric-label">R²</div>
+                    </div>
+                </div>
+                <p><strong>Key features:</strong> Target encoding (districts, 2km grids), walkability index, amenity diversity</p>
+                <p><strong>Challenge:</strong> Strong spatial autocorrelation—nearby properties influence each other</p>
+            </div>
+            
+            <div class="col">
+                <div class="figure-box">
+                    <div class="figure-placeholder">
+                        <img src="prediction_err_tln.png" alt="Tallinn Prediction Error Map">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col">
+                <h3>Understanding Prediction Error</h3>
+                <p><strong>Color-coded error:</strong></p>
+                <ul>
+                    <li><strong>Dark Blue = Underestimation:</strong> Model predicts lower class than actual (-2 to -1 class difference).</li>
+                    <li><strong>Blue = Correct:</strong> No error (0 difference).</li>
+                    <li><strong>White = Overestimation:</strong> Model predicts higher class than actual (+1 to +2 class difference).</li>
+                </ul>
+                <p><strong>Insight:</strong> Reveals spatial biases (e.g., overestimation in suburban areas, underestimation near amenities).</p>
+            </div>
+        </div>
+
+        <!-- Final Row: Conclusions and Footer -->
+        <div class="row">
+            <div class="col">
+                <h3>8. Conclusions</h3>
+                <p><strong>Spatial autocorrelation dominates:</strong> Neighborhood effects strong (ρ≈0.48 in Tallinn)</p>
+                <p><strong>Consistent patterns:</strong> Proximity to food/drink amenities increases rent</p>
+                <p><strong>Education paradox:</strong> Distance from primary/secondary schools associates with higher rent—likely urban structure, not causal. </p>
+                <p><strong>Tartu limitations:</strong> With only 448 listings, reliable predictions or assumptions couldn't be made due to insufficient data size</p>
+                <div class="highlight" style="margin-top: 12px;">
+                    <p><strong>For practitioners:</strong> Include spatial terms, use blocked CV, export maps as vectors</p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="footer">
+                    <div class="footer-left">
+                        <p><strong>Data Sources:</strong> KV.ee • OpenStreetMap • OSMnx • XGBoost • Maa- ja Ruumiamet (Estonian Land and Spatial Development Board)</p>
+                        
+                        <p><strong>Repository:</strong> Real-Estate-Pricerange-Predictor</p>
+                        <p style="margin-top: 6px;">Full code and figures available in the project repository</p>
+                    </div>
+                    <div class="qr-placeholder">
+                        <img src="adobe-express-qr-code(1).png" alt="QR code to repository">
+                        <p style="font-size: 18px; color: #1e3a8a; font-weight: 600;">Scan for GitHub</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
